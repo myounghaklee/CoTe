@@ -26,5 +26,5 @@ public class boj10773_제로 {
             }
         }
         System.out.println(ans);
-    }본
+    }
 }
