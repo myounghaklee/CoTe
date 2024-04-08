@@ -1,5 +1,6 @@
 package 백준;
 
+import java.io.*;
 import java.util.Scanner;
 
 public class boj15651_N과M3 {
@@ -7,24 +8,31 @@ public class boj15651_N과M3 {
     private static int N;
     private static int[] arr;
     private static boolean[] isSelected;
+    private static StringBuilder sb = new StringBuilder();
 
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        N = sc.nextInt();
-        M = sc.nextInt();
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        String[] input = br.readLine().split(" ");
+        N = Integer.parseInt(input[0]);
+        M = Integer.parseInt(input[1]);
         arr = new int[M];
-        isSelected = new boolean[N + 1];
 
         permu(0);
+
+        bw.write(sb.toString());
+        bw.flush();
+        bw.close();
+        br.close();
 
     }
 
     private static void permu(int cnt) {
         if (cnt == M) {
             for (int i = 0; i < arr.length; i++) {
-                System.out.print(arr[i] + " ");
+                sb.append(arr[i]).append(" ");
             }
-            System.out.println();
+            sb.append("\n");
             //System.out.println(Arrays.toString(arr));
             return;
         }
