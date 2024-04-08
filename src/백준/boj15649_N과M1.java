@@ -3,7 +3,7 @@ package 백준;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class boj15650_N과M1 {
+public class boj15649_N과M1 {
     private static int M;
     private static int N;
     private static int[] arr;
@@ -13,16 +13,16 @@ public class boj15650_N과M1 {
         Scanner sc = new Scanner(System.in);
         N = sc.nextInt();
         M = sc.nextInt();
-        arr = new int [M];
-        isSelected = new boolean[N+1];
+        arr = new int[M];
+        isSelected = new boolean[N + 1];
 
         permu(0);
 
     }
 
     private static void permu(int cnt) {
-        if(cnt == M) {
-            for(int i = 0 ;i<arr.length; i++){
+        if (cnt == M) {
+            for (int i = 0; i < arr.length; i++) {
                 System.out.print(arr[i] + " ");
             }
             System.out.println();
@@ -30,13 +30,13 @@ public class boj15650_N과M1 {
             return;
         }
 
-        for(int i = 1; i<=N; i++) {
-            if(isSelected[i])continue;
+        for (int i = 1; i <= N; i++) {
+            if (isSelected[i]) continue;
 
-            arr[cnt] =i;
+            arr[cnt] = i;
             isSelected[i] = true;
-            permu(cnt+1);
-            isSelected[i]= false;
+            permu(cnt + 1);
+            isSelected[i] = false;
         }
     }
 }
