@@ -1,39 +1,42 @@
 package 백준;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class n과m1 {
-    private static int [] array ;
-    private static boolean [] visited;
+    private static int M;
+    private static int N;
+    private static int[] arr;
+    private static boolean[] isSelected;
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int N = sc.nextInt();
-        int M = sc.nextInt();
-        array = new int [N];
-        visited = new boolean[N];
-        for(int i = 0; i<N; i++){
-            array[i] = i+1;
-        }
+        N = sc.nextInt();
+        M = sc.nextInt();
+        arr = new int [M];
+        isSelected = new boolean[N+1];
 
+        permu(0);
 
-        combination(array, visited, 0, N, M);
     }
 
-    private static void combination(int[] array, boolean[] visited, int depth, int n, int r) {
-        if( r == 0){
-            for(int i = 0 ;i<n ; i++){
-                if(visited[i]){
-                    System.out.print(array[i] + " ");
-                }
+    private static void permu(int cnt) {
+        if(cnt == M) {
+            for(int i = 0 ;i<arr.length; i++){
+                System.out.print(arr[i] + " ");
             }
             System.out.println();
+            //System.out.println(Arrays.toString(arr));
+            return;
         }
-        if(depth == n) return;
-        visited[depth] = true;
-        combination(array, visited, depth+1, n, r-1);
-        visited[depth] = false;
-        combination(array, visited, depth+1, n, r);
 
+        for(int i = 1; i<=N; i++) {
+            if(isSelected[i])continue;
+
+            arr[cnt] =i;
+            isSelected[i] = true;
+            permu(cnt+1);
+            isSelected[i]= false;
+        }
     }
-
 }
