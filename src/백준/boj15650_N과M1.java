@@ -3,7 +3,7 @@ package 백준;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class n과m1 {
+public class boj15650_N과M1 {
     private static int M;
     private static int N;
     private static int[] arr;
