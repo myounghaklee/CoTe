@@ -28,6 +28,10 @@ public class boj5014_스타트링크 {
         D = Integer.valueOf(st.nextToken());
         isVisited = new boolean[F + 1];
 
+        if(S==G){
+            System.out.println(0);
+            return;
+        }
         bfs(S);
 
 
@@ -59,6 +63,6 @@ public class boj5014_스타트링크 {
                 }
             }
         }
-        System.out.println("user the stairs");
+        System.out.println("use the stairs");
     }
 }
